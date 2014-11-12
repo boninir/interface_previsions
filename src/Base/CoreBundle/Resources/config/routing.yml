@@ -1,0 +1,3 @@
+base_core_homepage:
+    path:     /
+    defaults: { _controller: BaseCoreBundle:Default:index }
