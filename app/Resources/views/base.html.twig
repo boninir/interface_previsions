@@ -2,12 +2,32 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Interface de prévision{% endblock %}</title>
+        
+        {% stylesheets 'bundles/basecore/css/*' filter='cssrewrite' %}
+            <link rel="stylesheet" href="{{ asset_url }}" />
+        {% endstylesheets %}
+        
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+        <div class="container">
+            {% block body %}{% endblock %}
+        </div>
+
+        <div class="blockFooter">
+            {% block footer %}
+                <footer class="footer">
+                    <div class="container">
+                        <p class="text-muted text-center">Service Expertise - Maïa Eolis</p>
+                    </div>
+                </footer>
+            {% endblock %}
+        </div>
+        
+        {% javascripts 'bundles/basecore/js/*' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
     </body>
 </html>

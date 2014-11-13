@@ -1,0 +1,34 @@
+html, body {
+	background-color : #f6f6f6;
+}
+
+.blockTest{
+	background-color: red;
+}
+
+.blockHeader{
+	height: 130px;
+}
+
+.blockMenu{
+	width: 280px;
+}
+
+.logoHeader {
+	height : 130px;
+}
+
+.textHeader{
+	height : 130px;
+}
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.center{
+	text-align:center;
+}

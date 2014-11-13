@@ -1,3 +1,23 @@
-base_core_homepage:
+home:
     path:     /
     defaults: { _controller: BaseCoreBundle:Default:index }
+
+prevision:
+    path:     /prevision
+    defaults: { _controller: BaseCoreBundle:Default:index }
+
+meteo:
+    path:     /meteo
+    defaults: { _controller: BaseCoreBundle:Default:meteo }
+
+statuscode:
+    path:     /statuscode
+    defaults: { _controller: BaseCoreBundle:Default:statuscode }
+
+erreur:
+    path:     /erreur
+    defaults: { _controller: BaseCoreBundle:Default:erreur }
+
+bug:
+    path:     /bug
+    defaults: { _controller: BaseCoreBundle:Default:bug }

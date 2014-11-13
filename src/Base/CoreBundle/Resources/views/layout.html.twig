@@ -1,1 +1,41 @@
 {% extends "::base.html.twig" %}
+
+{% block body %}
+
+	<div class="blockHeader">
+		{% block header %}
+			<div class="container blockHeader">
+				<div class="pull-left">
+					<img src="{{ asset('bundles/basecore/images/logo.png') }}" class="logoHeader img-responsive "/>
+				</div>
+			</div>
+		{% endblock %}	
+	</div>
+	
+	<div class="blockContent">
+		{% block content %}
+			<div class="masthead">
+				<div role="navigation">
+					<ul class="nav nav-justified">
+						<li class="active">
+							<a href="{{ path('prevision') }}">Prévision</a>
+						</li>
+						<li>
+							<a href="{{ path('meteo') }}">Météo</a>
+						</li>
+						<li>
+							<a href="{{ path('statuscode') }}">StatusCode</a>
+						</li>
+						<li>
+							<a href="{{ path('erreur') }}">Rapport d'erreur</a>
+						</li>
+						<li>
+							<a href="{{ path('bug') }}">Bug</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		{% endblock %}
+	</div>
+
+{% endblock %}

@@ -1,0 +1,54 @@
+html, body {
+	background-color : #f6f6f6;
+}
+
+.container{
+	vertical-align : middle;
+}
+
+.blockTest{
+	background-color: red;
+}
+
+.blockHeader{
+	height: 130px;
+}
+
+.blockMenu{
+	width: 280px;
+}
+
+.logoHeader {
+	height : 130px;
+}
+
+.textHeader{
+	height : 130px;
+}
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.center{
+	text-align:center;
+}
+
+.onglets {
+	float : left;
+	width : 40px;
+}
+
+.onglets li {
+	list-style : none;
+	padding : 0;
+	margin-bottom : 3px;
+	height : 150px;
+	background-image : url('../../bundles/basecore/images/v1/tab_normal.png');
+}
+.onglets li:hover, .onglets li.active {
+	background-image : url('../../bundles/basecore/images/v1/tab_hover.png');
+}
