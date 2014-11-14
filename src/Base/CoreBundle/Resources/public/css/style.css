@@ -10,8 +10,14 @@ html, body {
 	height: 130px;
 }
 
+.blockFooter{ margin-top: 3%;}
+
 .blockMenu{
 	width: 280px;
+}
+
+.block{
+	margin: 15px;
 }
 
 .logoHeader {
@@ -31,4 +37,8 @@ html, body {
 
 .center{
 	text-align:center;
+}
+
+.form-contact{
+	width: 40%;
 }

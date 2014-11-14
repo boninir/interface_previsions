@@ -1,0 +1,3 @@
+parameters:
+    # contact email address
+    base_core.emails.contact_email: rbonini@maiaeolis.fr

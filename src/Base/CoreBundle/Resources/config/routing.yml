@@ -21,3 +21,5 @@ erreur:
 bug:
     path:     /bug
     defaults: { _controller: BaseCoreBundle:Default:bug }
+    requirements:
+        _method:  GET|POST
