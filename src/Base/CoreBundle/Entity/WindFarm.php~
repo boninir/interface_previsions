@@ -22,7 +22,6 @@ class WindFarm
      *
      * @ORM\Column(name="""id""", type="string", length=32)
      * @ORM\Id
-     * @ORM\SequenceGenerator(sequenceName="""maiaeolis"".""WindFarm_id_seq""", allocationSize=1, initialValue=1)
      */
     private $id;
 

@@ -6,7 +6,9 @@
 		{% block header %}
 			<div class="container blockHeader">
 				<div class="pull-left">
-					<img src="{{ asset('bundles/basecore/images/logo.png') }}" class="logoHeader img-responsive "/>
+					<a href="{{ path('home') }}">
+						<img src="{{ asset('bundles/basecore/images/logo.png') }}" class="logoHeader img-responsive "/>
+					</a>
 				</div>
 			</div>
 		{% endblock %}	

@@ -13,13 +13,14 @@ use Doctrine\ORM\Mapping as ORM;
 class Turbine
 {
     /**
+     * @var TurbineModel $turbineModel
      * @ORM\ManyToOne(targetEntity="Base\CoreBundle\Entity\TurbineModel")
      * @ORM\JoinColumn(name="""turbineModelId""", referencedColumnName="""id""", nullable=false)
-     * @ORM\JoinTable(name="""maiaeolis"".""TurbineModel""")
      */
     private $turbineModel;
 
     /**
+     * @var WindFarm $windFarm
      * @ORM\ManyToOne(targetEntity="Base\CoreBundle\Entity\WindFarm", inversedBy="turbines")
      * @ORM\JoinColumn(name="""windfarmId""", referencedColumnName="""id""", nullable=false)
      */
@@ -30,7 +31,6 @@ class Turbine
      *
      * @ORM\Column(name="""id""", type="string", length=16)
      * @ORM\Id
-     * @ORM\SequenceGenerator(sequenceName="""maiaeolis"".""Turbine_id_seq""", allocationSize=1, initialValue=1)
      */
     private $id;
 

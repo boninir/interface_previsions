@@ -2,43 +2,15 @@ html, body {
 	background-color : #f6f6f6;
 }
 
-.blockTest{
-	background-color: red;
-}
-
-.blockHeader{
-	height: 130px;
-}
-
-.blockFooter{ margin-top: 3%;}
-
-.blockMenu{
-	width: 280px;
-}
-
-.block{
-	margin: 15px;
-}
-
-.logoHeader {
-	height : 130px;
-}
-
-.textHeader{
-	height : 130px;
-}
-.left {
-	float: left;
-}
-
-.right {
-	float: right;
-}
-
-.center{
-	text-align:center;
-}
-
-.form-contact{
-	width: 40%;
-}
+.blockTest{background-color: red;}
+.blockHeader{height: 130px;}
+.blockFooter{margin-top: 3%;}
+.blockMenu{margin: 3% 2% 3% 0%;}
+.block{margin: 15px;}
+.logoHeader {height : 130px;}
+.textHeader{height : 130px;}
+.left {float: left;}
+.right {float: right;}
+.center{text-align:center;}
+.form-contact{width: 40%;}
+.menu_lateral{width:20%;}

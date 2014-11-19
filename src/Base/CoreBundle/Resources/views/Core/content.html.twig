@@ -1,11 +1,9 @@
 {% extends "BaseCoreBundle::layout.html.twig" %}
 
-{% block menu %}
-	{{ parent() }}
-{% endblock %}
-
 {% block content %}
 	{{ parent() }}
-	{{ users.0 }}
-	View prevision Core!
+	{{ render(controller('BaseCoreBundle:Menu:menu')) }}
+	<div class="col-md-9">
+		View prevision Core!
+	</div>
 {% endblock %}
