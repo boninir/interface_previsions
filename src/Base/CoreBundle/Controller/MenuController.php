@@ -11,13 +11,11 @@ class MenuController extends Controller
     public function menuAction()
     {
         //récupération de l'entity manager
-        $em = $this->getDoctrine()->getManager();
+        $repository = $this->getDoctrine()->getManager();
 
-        $parcs = $em->getRepository('BaseCoreBundle:WindFarm')->findAll();
+        $parcs = $repository->getRepository('BaseCoreBundle:WindFarm')->findAll();
 
-        // $turbines = $parcs->getTurbines();
-
-        // echo $turbines;
+        // var_dump($parcs[0]->get);
 
         return $this->render('BaseCoreBundle:Core:menu.html.twig', array( 'parcs' => $parcs));
     }

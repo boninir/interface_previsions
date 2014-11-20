@@ -187,7 +187,7 @@ class WindFarm
     {
         $this->turbines[] = $turbines;
         // ajouter la synchronisation avec l'objet windfarm si l'application doit permet l'ajout de parc
-
+        $turbine->setWindFarm($this);
         return $this;
     }
 

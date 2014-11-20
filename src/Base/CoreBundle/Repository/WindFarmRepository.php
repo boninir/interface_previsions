@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class WindFarmRepository extends EntityRepository
 {
+	public function getWindFarmsAndTurbines(){
+
+		// $qb = $this->createQueryBuilder('wft')
+		// 		   ->leftJoin('t.Turbine')
+		// 		   ->addSelect('t')
+		// 		   ->getQuery();
+
+		// return $qb->getResult();
+	}
 }

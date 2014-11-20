@@ -22,6 +22,7 @@ class Turbine
     /**
      * @ORM\ManyToOne(targetEntity="Base\CoreBundle\Entity\WindFarm", inversedBy="turbines")
      * @ORM\JoinColumn(name="""windfarmId""", referencedColumnName="""id""", nullable=false)
+     * @ORM\JoinTable(name="""maiaeolis"".""WindFarm""")
      */
     private $windFarm;
 
