@@ -14,14 +14,14 @@ class Turbine
 {
     /**
      * @ORM\ManyToOne(targetEntity="Base\CoreBundle\Entity\TurbineModel")
-     * @ORM\JoinColumn(name="""turbineModelId""", referencedColumnName="""id""", nullable=false)
+     * @ORM\JoinColumn(name="""turbinemodelid""", referencedColumnName="""id""", nullable=false)
      * @ORM\JoinTable(name="""maiaeolis"".""TurbineModel""")
      */
     private $turbineModel;
 
     /**
      * @ORM\ManyToOne(targetEntity="Base\CoreBundle\Entity\WindFarm", inversedBy="turbines")
-     * @ORM\JoinColumn(name="""windfarmId""", referencedColumnName="""id""", nullable=false)
+     * @ORM\JoinColumn(name="""windfarmid""", referencedColumnName="""id""", nullable=false)
      * @ORM\JoinTable(name="""maiaeolis"".""WindFarm""")
      */
     private $windFarm;
@@ -31,6 +31,7 @@ class Turbine
      *
      * @ORM\Column(name="""id""", type="string", length=16)
      * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\SequenceGenerator(sequenceName="""maiaeolis"".""Turbine_id_seq""", allocationSize=1, initialValue=1)
      */
     private $id;

@@ -3,6 +3,8 @@
 namespace Base\CoreBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Query\ResultSetMapping;
+use Doctrine\ORM\Query\ResultSetMappingBuilder;
 
 /**
  * WindFarmRepository
@@ -14,11 +16,28 @@ class WindFarmRepository extends EntityRepository
 {
 	public function getWindFarmsAndTurbines(){
 
-		// $qb = $this->createQueryBuilder('wft')
-		// 		   ->leftJoin('t.Turbine')
-		// 		   ->addSelect('t')
-		// 		   ->getQuery();
+		$rsm = new ResultSetMapping();
+		$rsm->addEntityResult('BaseCoreBundle:WindFarm', 'wf');
+		$rsm->addFieldResult('wf', 'wf_id', 'id');
+		$rsm->addFieldResult('wf', 'wf_name', 'name');
+		$rsm->addFieldResult('wf', 'wf_alias', 'alias');
+		$rsm->addJoinedEntityResult('BaseCoreBundle:Turbine' , 't', 'wf', 'turbines');
+		$rsm->addFieldResult('t', 't_id', 'id');
+		$rsm->addFieldResult('t', 't_name', 'name');
+		$rsm->addFieldResult('t', 't_alias', 'alias');
 
-		// return $qb->getResult();
+		$sql = 'SELECT "wf"."id" as wf_id,
+					   "wf"."name" as wf_name,
+					   "wf"."alias" as wf_alias,
+					   "t"."id" as t_id,
+					   "t"."name" as t_name,
+					   "t"."alias" as t_alias
+  				FROM "maiaeolis"."WindFarm" wf
+  				INNER JOIN "maiaeolis"."Turbine" t
+  				ON "wf"."id" = "t"."windfarmid"';
+
+  		$qb = $this->_em->createNativeQuery($sql, $rsm);
+
+		return $qb->getArrayResult();
 	}
 }

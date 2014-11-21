@@ -18,6 +18,7 @@ class TurbineModel
      * @ORM\Column(name="""id""", type="string", length=16)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\SequenceGenerator(sequenceName="""maiaeolis"".""TurbineModel_id_seq""", allocationSize=1, initialValue=1)
      */
     private $id;
 

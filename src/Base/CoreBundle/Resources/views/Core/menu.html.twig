@@ -11,19 +11,22 @@
 								<span></span>
 							</label>
 							<label for="node-{{loop.index0}}">{{ parc.name }} ({{ parc.alias }})</label>
+						
+							<ul>
+								{% for turbines in parc %}
+									{% for turbine in turbines %}
+										<li>
+											<input type="checkbox" id="node-{{loop.parent.loop.index0}}-{{loop.index0}}" checked="checked" />
+											<label>
+												<input type="checkbox" />
+												<span></span>
+											<label>
+											<label for="node-{{loop.parent.loop.index0}}-{{loop.index0}}">{{ turbine.name }} ({{ turbine.alias }})</label>
+										</li>
+									{% endfor %}
+								{% endfor %}
+							</ul>
 						</li>
-						<!-- <ul>
-							{% for turbine in parc %}
-								<li>
-									<input type="checkbox" id="node-{{loop.parent.loop.index0}}-{{loop.index0}}" checked="checked" />
-									<label>
-										<input type="checkbox" />
-										<span></span>
-									<label>
-									<label for="node-{{loop.parent.loop.index0}}-{{loop.index0}}">{{ turbine.name }} ({{ turbine.alias }}s</label>
-								</li>
-							{% endfor %}
-						</ul> -->
 					{% endfor %}
 	            </ul>
 	        </div>

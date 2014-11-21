@@ -18,37 +18,38 @@ class WindFarm
     private $turbines;
 
     /**
-     * @var string
+     * @var string $id
      *
      * @ORM\Column(name="""id""", type="string", length=32)
      * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\SequenceGenerator(sequenceName="""maiaeolis"".""WindFarm_id_seq""", allocationSize=1, initialValue=1)
      */
     private $id;
 
     /**
-     * @var string
+     * @var string $name
      *
      * @ORM\Column(name="""name""", type="text", nullable=true)
      */
     private $name;
 
     /**
-     * @var string
+     * @var string $alias
      *
      * @ORM\Column(name="""alias""", type="string", length=32, nullable=true)
      */
     private $alias;
 
     /**
-     * @var string
+     * @var string $location
      *
      * @ORM\Column(name="""location""", type="text", nullable=true)
      */
     private $location;
 
     /**
-     * @var string
+     * @var string $sncNbr
      *
      * @ORM\Column(name="""sncNbr""", type="string", length=8, nullable=true)
      */
