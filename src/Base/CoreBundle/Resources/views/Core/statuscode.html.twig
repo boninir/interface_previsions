@@ -3,5 +3,15 @@
 {% block content %}
 	{{ parent() }}
 	{{ render(controller('BaseCoreBundle:Menu:menu')) }}
-	View statuscode Core!
+	
+	<div class="container">
+		<ul>
+			{% for statusCode in statusCodes %}
+				<li>
+					{{ statusCode.0 }}
+				</li>	
+			{% endfor %}
+	</ul>
+	</div>
+
 {% endblock %}

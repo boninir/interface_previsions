@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * TurbineModel
  *
  * @ORM\Table(name="""maiaeolis"".""TurbineModel""")
- * @ORM\Entity(repositoryClass="Base\CoreBundle\Entity\TurbineModelRepository")
+ * @ORM\Entity(repositoryClass="Base\CoreBundle\Repository\TurbineModelRepository")
  */
 class TurbineModel
 {

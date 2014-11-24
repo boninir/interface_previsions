@@ -20,7 +20,13 @@ class DefaultController extends Controller
 
     public function statuscodeAction()
     {
-        return $this->render('BaseCoreBundle:Core:statuscode.html.twig');
+        //récupération du service status code
+        $statusCodeServices = $this->container->get('base_core.statusCodeService');
+
+        $statuscode = $statusCodeServices->getStatusCodes();
+        // var_dump($statuscode);exit;
+
+        return $this->render('BaseCoreBundle:Core:statuscode.html.twig', array( 'statusCodes' => $statuscode));
     }
 
     public function erreurAction()
