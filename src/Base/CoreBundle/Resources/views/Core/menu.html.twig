@@ -1,5 +1,5 @@
 {% block menu %}
-	<div class="col-md-3 blockMenu">
+	<div class="col-xs-3 col-sm-3 col-md-3">
 	    <nav class="navbar navbar-default" role="navigation">
 			<div class="acidjs-css3-treeview">
 				<ul>
@@ -21,7 +21,7 @@
 												<input type="checkbox" />
 												<span></span>
 											<label>
-											<label for="node-{{loop.parent.loop.index0}}-{{loop.index0}}">{{ turbine.name }} ({{ turbine.alias }})</label>
+											<label for="node-{{loop.parent.loop.index0}}-{{loop.index0}}"> {{ turbine.alias }}</label>
 										</li>
 									{% endfor %}
 								{% endfor %}

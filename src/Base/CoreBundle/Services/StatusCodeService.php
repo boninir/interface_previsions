@@ -23,7 +23,7 @@ class StatusCodeService
 
     	// formatage de l'id (suppression du "R-")
     	foreach ($statusCodes as $key => $statusCode) {
-    		$newId = split("-", $statusCode->getId());
+    		$newId = explode("-", $statusCode->getId());
     		$tabStatusCodes[$key] = array($newId[1],$statusCode->getName());
     	}
 

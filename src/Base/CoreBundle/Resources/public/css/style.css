@@ -4,8 +4,9 @@ html, body {
 
 .blockTest{background-color: red;}
 .blockHeader{height: 130px;}
-.blockFooter{margin-top: 3%;}
-.blockMenu{margin: 3% 2% 3% 0%;}
+.blockContent{height:500px;}
+.blockFooter{margin-top:3%;}
+.blockMenu{margin-bottom:2%;}
 .block{margin: 15px;}
 .logoHeader {height : 130px;}
 .textHeader{height : 130px;}

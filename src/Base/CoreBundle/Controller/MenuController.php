@@ -13,9 +13,9 @@ class MenuController extends Controller
         //récupération de l'entity manager
         $repository = $this->getDoctrine()->getManager();
 
-        $parcs = $repository->getRepository('BaseCoreBundle:WindFarm')->getWindFarmsAndTurbines();
-
-        // var_dump($parcs[0]['turbines'][0]['alias']);exit;
+        // récupération de la liste des parcs et de leurs turbines
+        $parcs = $repository->getRepository('BaseCoreBundle:WindFarm')
+                            ->getWindFarmsAndTurbines();
 
         return $this->render('BaseCoreBundle:Core:menu.html.twig', array( 'parcs' => $parcs));
     }
