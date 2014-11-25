@@ -5,6 +5,7 @@ namespace Base\CoreBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Base\CoreBundle\Entity\Contact;
 use Base\CoreBundle\Form\ContactType;
+use Base\CoreBundle\Form\StatusCodeType;
 
 class DefaultController extends Controller
 {
@@ -23,10 +24,12 @@ class DefaultController extends Controller
         //récupération du service status code
         $statusCodeServices = $this->container->get('base_core.statusCodeService');
 
+        // récupération des valeurs à ajouter à la vue
         $statuscode = $statusCodeServices->getStatusCodes();
-        // var_dump($statuscode);exit;
+        $form = $this->get('form.factory')->create(new StatusCodeType());
 
-        return $this->render('BaseCoreBundle:Core:statuscode.html.twig', array( 'statusCodes' => $statuscode));
+        return $this->render('BaseCoreBundle:Core:statuscode.html.twig', array( 'statusCodes' => $statuscode,
+                                                                                'form' => $form->createView()));
     }
 
     public function erreurAction()

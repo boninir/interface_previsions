@@ -1,20 +1,3 @@
-html, body {
-	background-color : #f6f6f6;
-}
-
-.blockTest{background-color: red;}
-.blockHeader{height: 130px;}
-.blockContent{height:500px;}
-.blockFooter{margin-top:3%;}
-.blockMenu{margin-bottom:2%;}
-.block{margin: 15px;}
-.logoHeader {height : 130px;}
-.textHeader{height : 130px;}
-.left {float: left;}
-.right {float: right;}
-.center{text-align:center;}
-.form-contact{width: 40%;}
-.menu_lateral{width:20%;}
 .acidjs-css3-treeview,
 .acidjs-css3-treeview *
 {

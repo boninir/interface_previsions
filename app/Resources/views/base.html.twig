@@ -28,6 +28,11 @@
         
         {% javascripts 'bundles/basecore/js/*' %}
             <script src="{{ asset_url }}"></script>
+            <script type="text/javascript">
+                $(function () {
+                    $('.datepicker').datepicker()
+                });
+            </script>
         {% endjavascripts %}
     </body>
 </html>

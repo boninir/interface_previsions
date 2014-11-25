@@ -5,6 +5,7 @@ namespace Base\CoreBundle\Services;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\EntityManager;
 
+
 class StatusCodeService
 {
 
