@@ -32,9 +32,10 @@ class WindFarmRepository extends EntityRepository
 					   "t"."id" as t_id,
 					   "t"."name" as t_name,
 					   "t"."alias" as t_alias
-  				FROM "maiaeolis"."WindFarm" wf
-  				INNER JOIN "maiaeolis"."Turbine" t
-  				ON "wf"."id" = "t"."windfarmid"';
+  				FROM "DATA_WAREHOUSE"."WindFarm" wf
+  				INNER JOIN "DATA_WAREHOUSE"."Turbine" t
+  				ON "wf"."id" = "t"."windFarmId"
+  				ORDER BY "t"."name"';
 
   		$qb = $this->_em->createNativeQuery($sql, $rsm);
 

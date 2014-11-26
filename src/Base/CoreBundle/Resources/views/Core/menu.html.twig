@@ -5,7 +5,7 @@
 				<ul>
 					{% for parc in parcs %}
 						<li>
-							<input type="checkbox" id="node-{{loop.index0}}" checked="checked" />
+							<input type="checkbox" id="node-{{loop.index0}}" />
 							<label>
 								<input type="checkbox" />
 								<span></span>
@@ -16,12 +16,12 @@
 								{% for turbines in parc %}
 									{% for turbine in turbines %}
 										<li>
-											<input type="checkbox" id="node-{{loop.parent.loop.index0}}-{{loop.index0}}" checked="checked" />
+											<input type="checkbox" id="node-{{loop.parent.loop.parent.loop.index0}}-{{loop.index0}}" />
 											<label>
 												<input type="checkbox" />
 												<span></span>
 											<label>
-											<label for="node-{{loop.parent.loop.index0}}-{{loop.index0}}"> {{ turbine.alias }}</label>
+											<label for="node-{{loop.parent.loop.parent.loop.index0}}-{{loop.index0}}"> {{ turbine.alias }}</label>
 										</li>
 									{% endfor %}
 								{% endfor %}

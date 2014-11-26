@@ -26,15 +26,10 @@
             {% endblock %}
         </div>
         
-        <!-- en test -->
-        {% javascripts 'bundles/basecore/js/*' %}
+        {% javascripts 'bundles/basecore/js/bootstrap.js'
+                       'bundles/basecore/js/npm.js'
+                       'bundles/basecore/js/threeview.js' %}
             <script src="{{ asset_url }}"></script>
-            <script type="text/javascript">
-                $(function () {
-                    $('.datepicker').datepicker()
-                });
-            </script>
         {% endjavascripts %}
-        <!-- fin en test -->
     </body>
 </html>

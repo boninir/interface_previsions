@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * WindFarm
  *
- * @ORM\Table(name="""maiaeolis"".""WindFarm""")
+ * @ORM\Table(name="""DATA_WAREHOUSE"".""WindFarm""")
  * @ORM\Entity(repositoryClass="Base\CoreBundle\Repository\WindFarmRepository")
  */
 class WindFarm
@@ -23,7 +23,7 @@ class WindFarm
      * @ORM\Column(name="""id""", type="string", length=32)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\SequenceGenerator(sequenceName="""maiaeolis"".""WindFarm_id_seq""", allocationSize=1, initialValue=1)
+     * @ORM\SequenceGenerator(sequenceName="""DATA_WAREHOUSE"".""WindFarm_id_seq""", allocationSize=1, initialValue=1)
      */
     private $id;
 

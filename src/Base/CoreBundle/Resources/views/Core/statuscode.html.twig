@@ -47,7 +47,7 @@
 		<ul class="list-unstyled">
 			{% for statusCode in statusCodes %}
 				<li>
-					{{ statusCode.0 }} - {{ statusCode.1 }}
+					{{ statusCode.id[2:] ~ ' - ' ~ statusCode.name}}
 				</li>	
 			{% endfor %}
 		</ul>

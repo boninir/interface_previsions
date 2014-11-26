@@ -24,9 +24,14 @@ class DefaultController extends Controller
     {
         //récupération du service status code
         $statusCodeServices = $this->container->get('base_core.statusCodeService');
+        $repository = $this->getDoctrine()->getManager();
+
+        // récupération de la liste de status code triée
+        $statusCodes = $repository->getRepository('BaseCoreBundle:StatusCode')
+                                  ->findBy(array(),array('id' => 'asc'));
 
         // récupération des valeurs à ajouter à la vue
-        $statuscode = $statusCodeServices->getStatusCodes();
+        // $statuscode = $statusCodeServices->getStatusCodes();
         $form = $this->get('form.factory')->create(new StatusCodeType());
 
         if ($form->handleRequest($request)->isValid()) {
@@ -41,7 +46,7 @@ class DefaultController extends Controller
             echo $tabResultStatusCode;exit;
         }
 
-        return $this->render('BaseCoreBundle:Core:statuscode.html.twig', array( 'statusCodes' => $statuscode,
+        return $this->render('BaseCoreBundle:Core:statuscode.html.twig', array( 'statusCodes' => $statusCodes,
                                                                                 'form' => $form->createView()));
     }
 
