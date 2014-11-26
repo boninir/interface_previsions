@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Base\CoreBundle\Entity\Contact;
 use Base\CoreBundle\Form\ContactType;
 use Base\CoreBundle\Form\StatusCodeType;
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
@@ -19,7 +20,7 @@ class DefaultController extends Controller
         return $this->render('BaseCoreBundle:Core:meteo.html.twig');
     }
 
-    public function statuscodeAction()
+    public function statuscodeAction(Request $request)
     {
         //récupération du service status code
         $statusCodeServices = $this->container->get('base_core.statusCodeService');
@@ -27,6 +28,18 @@ class DefaultController extends Controller
         // récupération des valeurs à ajouter à la vue
         $statuscode = $statusCodeServices->getStatusCodes();
         $form = $this->get('form.factory')->create(new StatusCodeType());
+
+        if ($form->handleRequest($request)->isValid()) {
+            // récupération des données envoyées par le formulaire
+            $data = $form->getData();
+
+            $dateBegin = $data["exportBegin"];
+            $dateEnd = $data["exportEnd"];
+            $arrayId = $data["arrayId"];
+            
+            $tabResultStatusCode = $statusCodeServices->getStatusCodesRequest($dateBegin, $dateEnd, $arrayId);
+            echo $tabResultStatusCode;exit;
+        }
 
         return $this->render('BaseCoreBundle:Core:statuscode.html.twig', array( 'statusCodes' => $statuscode,
                                                                                 'form' => $form->createView()));

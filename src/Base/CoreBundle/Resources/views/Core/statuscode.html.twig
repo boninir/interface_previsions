@@ -11,6 +11,36 @@
 				<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
 			</a>
 		</p>
+
+		<div class="text-center">
+			<form action="{{ path('statuscode') }}" method="post" {{ form_enctype(form) }} role="form">
+
+				<div class="form-group">
+			    	{{ form_errors(form) }}
+			    </div>
+			    
+				<div class="form-group">
+			    	{{ form_widget(form.exportBegin, {'attr': {'class': ' datepicker','placeholder': 'début export'}}) }}
+			    	{{ form_widget(form.exportEnd, {'attr': {'class': ' datepicker','placeholder': 'fin export'}}) }}
+			    </div>
+
+			    <div class="form-group">
+			    	{{ form_widget(form.arrayId, {'attr': {'class': '',
+			    										   'placeholder': 'id(s) status code',
+			    										   'rows': '3',
+			    										   'cols' : '41'}})
+			    	}}
+			    </div>
+
+				<div class="form-group">
+			    	{{ form_rest(form) }}
+			    </div>
+
+			    <button type="submit" class="btn btn-default">Envoyer</button>
+				
+			</form>
+		</div>
+
 	</div>
 
 	<div class="col-xs-12 col-sm-12 col-md-3">
@@ -21,20 +51,6 @@
 				</li>	
 			{% endfor %}
 		</ul>
-	</div>
-
-	<div class="center-block text-center form-contact">
-		<form action="{{ path('statuscode') }}" method="post" {{ form_enctype(form) }} role="form">
-	    
-			
-
-			<div class="form-group">
-		    	{{ form_rest(form) }}
-		    </div>
-
-		    <button type="submit" class="btn btn-default">Envoyer</button>
-			
-		</form>
 	</div>
 
 {% endblock %}

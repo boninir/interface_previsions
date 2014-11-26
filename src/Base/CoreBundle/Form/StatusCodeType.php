@@ -15,11 +15,11 @@ class StatusCodeType extends AbstractType
     {
         $builder->add('exportBegin', 'date', array('input'  => 'datetime',
                                                    'widget' => 'single_text',
-                                                   'format' => 'yyyy-MM-dd',
-                                                   'attr' => array('class' => 'datepicker')))
+                                                   'format' => 'yyyy-MM-dd',))
                 ->add('exportEnd', 'date', array('input'  => 'datetime',
                                                  'widget' => 'single_text',
-                                                 'format' => 'yyyy-MM-dd',));
+                                                 'format' => 'yyyy-MM-dd',))
+                ->add('arrayId', 'textarea');
     }
 
     /**

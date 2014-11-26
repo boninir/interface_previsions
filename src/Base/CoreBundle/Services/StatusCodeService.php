@@ -30,4 +30,10 @@ class StatusCodeService
 
         return $tabStatusCodes;
     }
+
+    public function getStatusCodesRequest($dateBegin, $dateEnd, $arrayId){
+
+
+        return $arrayId;
+    }
 }
