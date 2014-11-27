@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * StatusCode
  *
- * @ORM\Table(name="""maiaeolis"".""StatusCode""")
+ * @ORM\Table(name="""DATA_WAREHOUSE"".""StatusCode""")
  * @ORM\Entity(repositoryClass="Base\CoreBundle\Repository\StatusCodeRepository")
  */
 class StatusCode
@@ -18,7 +18,7 @@ class StatusCode
      * @ORM\Column(name="""id""", type="string", length=16)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\SequenceGenerator(sequenceName="""maiaeolis"".""StatusCode_id_seq""", allocationSize=1, initialValue=1)
+     * @ORM\SequenceGenerator(sequenceName="""DATA_WAREHOUSE"".""StatusCode_id_seq""", allocationSize=1, initialValue=1)
      */
     private $id;
 

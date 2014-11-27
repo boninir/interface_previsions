@@ -1,20 +1,45 @@
 {% extends "BaseCoreBundle::layout.html.twig" %}
 
 {% block content %}
-
-	{{ render(controller('BaseCoreBundle:Menu:menu')) }}
 	
-	<div class="col-xs-9 col-sm-9 col-md-6">
-		<p class="text-center">
-			<span class="lead">Export des status code</span>
-			<a data-toggle="modal" href="#myModal" data-target="#myModal">
-				<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-			</a>
-		</p>
+	<form action="{{ path('statuscode') }}" method="post" {{ form_enctype(form) }} role="form">
+		<div class="col-xs-3 col-sm-3 col-md-3">
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="acidjs-css3-treeview">
+			    	<ul>
+						{% for parc in parcs %}
+							<li>
+								<input type="checkbox" id="node-{{loop.index0}}" value="{{ parc.id }}" />
+								<label><input type="checkbox" /><span></span></label>
+								<label for="node-{{loop.index0}}">{{ parc.name }} ({{ parc.alias }})</label>
+							
+								<ul>
+									{% for turbines in parc %}
+										{% for turbine in turbines %}
+											<li>
+												<input type="checkbox" id="node-{{loop.parent.loop.parent.loop.index0}}-{{loop.index0}}" value="{{ turbine.id }}" />
+												<label><input type="checkbox" /><span></span><label>
+												<label for="node-{{loop.parent.loop.parent.loop.index0}}-{{loop.index0}}"> {{ turbine.alias }}</label>
+											</li>
+										{% endfor %}
+									{% endfor %}
+								</ul>
+							</li>
+						{% endfor %}
+		            </ul>
+				</div>
+			</nav>
+		</div>
 
-		<div class="text-center">
-			<form action="{{ path('statuscode') }}" method="post" {{ form_enctype(form) }} role="form">
+		<div class="col-xs-9 col-sm-9 col-md-6">
+			<p class="text-center">
+				<span class="lead">Export des status code</span>
+				<a data-toggle="modal" href="#myModal" data-target="#myModal">
+					<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
+				</a>
+			</p>
 
+			<div class="text-center">
 				<div class="form-group">
 			    	{{ form_errors(form) }}
 			    </div>
@@ -31,26 +56,25 @@
 			    										   'cols' : '41'}})
 			    	}}
 			    </div>
-
+				
 				<div class="form-group">
-			    	{{ form_rest(form) }}
+			    	{{ form_widget(form.save, {'attr': {'class': ' btn btn-default'}}) }}
 			    </div>
 
-			    <button type="submit" class="btn btn-default">Envoyer</button>
-				
-			</form>
+			    <div class="form-group">
+			    	{{ form_rest(form) }}
+			    </div>
+			</div>
 		</div>
 
-	</div>
-
-	<div class="col-xs-12 col-sm-12 col-md-3">
-		<ul class="list-unstyled">
-			{% for statusCode in statusCodes %}
-				<li>
-					{{ statusCode.id[2:] ~ ' - ' ~ statusCode.name}}
-				</li>	
-			{% endfor %}
-		</ul>
-	</div>
-
+		<div class="col-xs-12 col-sm-12 col-md-3">
+			<ul class="list-unstyled">
+				{% for statusCode in statusCodes %}
+					<li>
+						{{ statusCode.id[2:] ~ ' - ' ~ statusCode.name}}
+					</li>	
+				{% endfor %}
+			</ul>
+		</div>
+	</form>
 {% endblock %}

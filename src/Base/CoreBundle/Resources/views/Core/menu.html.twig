@@ -1,4 +1,4 @@
-{% block menu %}
+{# block azerty %}
 	<div class="col-xs-3 col-sm-3 col-md-3">
 	    <nav class="navbar navbar-default" role="navigation">
 			<div class="acidjs-css3-treeview">
@@ -6,10 +6,7 @@
 					{% for parc in parcs %}
 						<li>
 							<input type="checkbox" id="node-{{loop.index0}}" />
-							<label>
-								<input type="checkbox" />
-								<span></span>
-							</label>
+							<label><input type="checkbox" /><span></span></label>
 							<label for="node-{{loop.index0}}">{{ parc.name }} ({{ parc.alias }})</label>
 						
 							<ul>
@@ -17,10 +14,7 @@
 									{% for turbine in turbines %}
 										<li>
 											<input type="checkbox" id="node-{{loop.parent.loop.parent.loop.index0}}-{{loop.index0}}" />
-											<label>
-												<input type="checkbox" />
-												<span></span>
-											<label>
+											<label><input type="checkbox" /><span></span><label>
 											<label for="node-{{loop.parent.loop.parent.loop.index0}}-{{loop.index0}}"> {{ turbine.alias }}</label>
 										</li>
 									{% endfor %}
@@ -32,4 +26,4 @@
 	        </div>
 		</nav>
 	</div>
-{% endblock %}
+{% endblock #}

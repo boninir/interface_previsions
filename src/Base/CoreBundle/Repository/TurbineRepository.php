@@ -12,4 +12,10 @@ use Doctrine\ORM\EntityRepository;
  */
 class TurbineRepository extends EntityRepository
 {
+	public function getTurbinesCheck(){
+
+		$tabTurbine = array();
+
+		return $tabTurbine;
+	}
 }

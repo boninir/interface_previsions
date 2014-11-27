@@ -14,7 +14,7 @@ class Turbine
 {
     /**
      * @ORM\ManyToOne(targetEntity="Base\CoreBundle\Entity\TurbineModel")
-     * @ORM\JoinColumn(name="""turbinemodelid""", referencedColumnName="""id""", nullable=false)
+     * @ORM\JoinColumn(name="""turbineModelId""", referencedColumnName="""id""", nullable=false)
      * @ORM\JoinTable(name="""DATA_WAREHOUSE"".""TurbineModel""")
      */
     private $turbineModel;

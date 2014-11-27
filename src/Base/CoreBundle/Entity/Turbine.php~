@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Turbine
  *
- * @ORM\Table(name="""maiaeolis"".""Turbine""")
+ * @ORM\Table(name="""DATA_WAREHOUSE"".""Turbine""")
  * @ORM\Entity(repositoryClass="Base\CoreBundle\Repository\TurbineRepository")
  */
 class Turbine
@@ -15,14 +15,14 @@ class Turbine
     /**
      * @ORM\ManyToOne(targetEntity="Base\CoreBundle\Entity\TurbineModel")
      * @ORM\JoinColumn(name="""turbinemodelid""", referencedColumnName="""id""", nullable=false)
-     * @ORM\JoinTable(name="""maiaeolis"".""TurbineModel""")
+     * @ORM\JoinTable(name="""DATA_WAREHOUSE"".""TurbineModel""")
      */
     private $turbineModel;
 
     /**
      * @ORM\ManyToOne(targetEntity="Base\CoreBundle\Entity\WindFarm", inversedBy="turbines")
-     * @ORM\JoinColumn(name="""windfarmid""", referencedColumnName="""id""", nullable=false)
-     * @ORM\JoinTable(name="""maiaeolis"".""WindFarm""")
+     * @ORM\JoinColumn(name="""windFarmId""", referencedColumnName="""id""", nullable=false)
+     * @ORM\JoinTable(name="""DATA_WAREHOUSE"".""WindFarm""")
      */
     private $windFarm;
 
@@ -32,7 +32,7 @@ class Turbine
      * @ORM\Column(name="""id""", type="string", length=16)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
-     * @ORM\SequenceGenerator(sequenceName="""maiaeolis"".""Turbine_id_seq""", allocationSize=1, initialValue=1)
+     * @ORM\SequenceGenerator(sequenceName="""DATA_WAREHOUSE"".""Turbine_id_seq""", allocationSize=1, initialValue=1)
      */
     private $id;
 

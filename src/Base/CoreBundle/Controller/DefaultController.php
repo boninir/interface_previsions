@@ -5,7 +5,7 @@ namespace Base\CoreBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Base\CoreBundle\Entity\Contact;
 use Base\CoreBundle\Form\ContactType;
-use Base\CoreBundle\Form\StatusCodeType;
+use Base\CoreBundle\Form\TurbineStatusCodeType;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
@@ -22,9 +22,21 @@ class DefaultController extends Controller
 
     public function statuscodeAction(Request $request)
     {
-        //récupération du service status code
+        ///////////////////////////////////////////////
+        //récupération des services et des repository//
+        ///////////////////////////////////////////////
+
         $statusCodeServices = $this->container->get('base_core.statusCodeService');
+        $menuServices = $this->container->get('base_core.menuService');
         $repository = $this->getDoctrine()->getManager();
+
+        //////////////
+        //affichage //
+        //////////////
+
+        // récupération de la liste des parcs et de leurs turbines
+        $parcs = $repository->getRepository('BaseCoreBundle:WindFarm')
+                            ->getWindFarmsAndTurbines();
 
         // récupération de la liste de status code triée
         $statusCodes = $repository->getRepository('BaseCoreBundle:StatusCode')
@@ -32,11 +44,13 @@ class DefaultController extends Controller
 
         // récupération des valeurs à ajouter à la vue
         // $statuscode = $statusCodeServices->getStatusCodes();
-        $form = $this->get('form.factory')->create(new StatusCodeType());
+
+        $form = $this->get('form.factory')->create(new TurbineStatusCodeType());
 
         if ($form->handleRequest($request)->isValid()) {
             // récupération des données envoyées par le formulaire
             $data = $form->getData();
+            var_dump($data);exit;
 
             $dateBegin = $data["exportBegin"];
             $dateEnd = $data["exportEnd"];
@@ -47,7 +61,8 @@ class DefaultController extends Controller
         }
 
         return $this->render('BaseCoreBundle:Core:statuscode.html.twig', array( 'statusCodes' => $statusCodes,
-                                                                                'form' => $form->createView()));
+                                                                                'form' => $form->createView(),
+                                                                                'parcs' => $parcs));
     }
 
     public function erreurAction()
@@ -55,7 +70,7 @@ class DefaultController extends Controller
         return $this->render('BaseCoreBundle:Core:erreur.html.twig');
     }
 
-    public function bugAction()
+    public function bugAction(Request $request)
     {
         $contact = new Contact();
         $form = $this->get('form.factory')->create(new ContactType(), $contact);
