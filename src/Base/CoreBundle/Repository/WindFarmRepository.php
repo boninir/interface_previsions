@@ -35,8 +35,7 @@ class WindFarmRepository extends EntityRepository
   				FROM "DATA_WAREHOUSE"."WindFarm" wf
   				INNER JOIN "DATA_WAREHOUSE"."Turbine" t
   				ON "wf"."id" = "t"."windFarmId"
-  				ORDER BY "t"."name"
-  				'; //tmp => a supprimer
+  				ORDER BY "t"."name"';
 
   		$qb = $this->_em->createNativeQuery($sql, $rsm);
 

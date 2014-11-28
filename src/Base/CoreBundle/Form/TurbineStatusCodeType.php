@@ -4,6 +4,7 @@ namespace Base\CoreBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Base\CoreBundle\Repository\WindFarmRepository;
 
 class TurbineStatusCodeType extends AbstractType
 {
@@ -20,7 +21,7 @@ class TurbineStatusCodeType extends AbstractType
                                                  'widget' => 'single_text',
                                                  'format' => 'yyyy-MM-dd',))
                 ->add('arrayId', 'textarea')
-                ->add('turbines', 'entity', array('class' => 'BaseCoreBundle:Turbine',
+                ->add('turbines', 'entity', array('class' => 'BaseCoreBundle:WindFarm',
                                                              'property' => 'name',
                                                              'multiple' => true,
                                                              'expanded' => true))

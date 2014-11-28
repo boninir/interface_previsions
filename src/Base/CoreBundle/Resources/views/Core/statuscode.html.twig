@@ -7,23 +7,10 @@
 			<nav class="navbar navbar-default" role="navigation">
 				<div class="acidjs-css3-treeview">
 			    	<ul>
-						{% for parc in parcs %}
+			    		{% for windfarm in form.turbines %}
 							<li>
-								<input type="checkbox" id="node-{{loop.index0}}" value="{{ parc.id }}" />
-								<label><input type="checkbox" /><span></span></label>
-								<label for="node-{{loop.index0}}">{{ parc.name }} ({{ parc.alias }})</label>
-							
-								<ul>
-									{% for turbines in parc %}
-										{% for turbine in turbines %}
-											<li>
-												<input type="checkbox" id="node-{{loop.parent.loop.parent.loop.index0}}-{{loop.index0}}" value="{{ turbine.id }}" />
-												<label><input type="checkbox" /><span></span><label>
-												<label for="node-{{loop.parent.loop.parent.loop.index0}}-{{loop.index0}}"> {{ turbine.alias }}</label>
-											</li>
-										{% endfor %}
-									{% endfor %}
-								</ul>
+								{{ form_widget(windfarm, {'attr': {'class': ' datepicker'}}) }}
+								{{ form_label(windfarm) }}
 							</li>
 						{% endfor %}
 		            </ul>
@@ -62,7 +49,9 @@
 			    </div>
 
 			    <div class="form-group">
-			    	{{ form_rest(form) }}
+								{# form_widget(form.turbines) #}
+			    	{# form_widget(form.turbines, {'attr': {'class': ''}}) #}
+			    	{{ form_row(form._token) }}
 			    </div>
 			</div>
 		</div>
