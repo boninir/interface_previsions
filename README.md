@@ -1,5 +1,6 @@
 Symfony Standard Edition
 ========================
+[![Build Status](https://magnum.travis-ci.com/boninir/interface_previsions.svg?token=pojkyqEuG9aU1PQ8zMqR&branch=develop)](https://magnum.travis-ci.com/boninir/interface_previsions)
 
 Welcome to the Symfony Standard Edition - a fully-functional Symfony2
 application that you can use as the skeleton for your new applications.
