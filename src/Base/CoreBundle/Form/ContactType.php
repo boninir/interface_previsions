@@ -14,20 +14,9 @@ class ContactType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('subject')
-            ->add('body')
-        ;
-    }
-    
-    /**
-     * @param OptionsResolverInterface $resolver
-     */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => 'Base\CoreBundle\Entity\Contact'
-        ));
+        $builder->add('subject', 'text')
+                ->add('body', 'textarea')
+                ->add('save', 'submit');
     }
 
     /**
@@ -35,6 +24,6 @@ class ContactType extends AbstractType
      */
     public function getName()
     {
-        return 'base_corebundle_contact';
+        return 'contact';
     }
 }

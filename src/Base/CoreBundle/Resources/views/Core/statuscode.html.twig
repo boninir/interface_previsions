@@ -9,6 +9,11 @@
 			    	<ul>
 			    		{% for windfarm in form.turbines %}
 							<li>
+								<input type="checkbox" id="node-{{loop.index0}}" />
+								<label>
+									<input type="checkbox" />
+									<span></span>
+								</label>
 								{{ form_widget(windfarm, {'attr': {'class': ' datepicker'}}) }}
 								{{ form_label(windfarm) }}
 							</li>

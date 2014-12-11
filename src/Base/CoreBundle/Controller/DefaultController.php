@@ -3,8 +3,8 @@
 namespace Base\CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Base\CoreBundle\Entity\Contact;
 use Base\CoreBundle\Form\ContactType;
+use Base\CoreBundle\Form\Handler\ContactHandler;
 use Base\CoreBundle\Form\TurbineStatusCodeType;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -70,31 +70,17 @@ class DefaultController extends Controller
         return $this->render('BaseCoreBundle:Core:erreur.html.twig');
     }
 
-    public function bugAction(Request $request)
+    public function bugAction()
     {
-        $contact = new Contact();
-        $form = $this->get('form.factory')->create(new ContactType(), $contact);
-
+        $form = $this->get('form.factory')->create(new ContactType());
         $request = $this->getRequest();
+        $formHandler = new ContactHandler($form, $request, $this->get('mailer'));
 
-        if ($request->getMethod() == 'POST') {
+        $process = $formHandler->process();
 
-            if ($form->isValid()) {
-                return $this->redirect($this->generateUrl('prevision'));
-                $message = \Swift_Message::newInstance()
-                    ->setSubject('Repport de bug - Interface de prévision')
-                    ->setFrom('interface_prevision@maiaeolis.fr')
-                    ->setTo($this->container->getParameter('base_core.emails.contact_email'))
-                    ->setBody('mail de test');
-                    // ->setBody($this->renderView('BaseCoreBundle:Page:contactEmail.txt.twig', array('contact' => $contact)));
-                $this->get('mailer')->send($message);
-
-                $this->get('session')->setFlash('blogger-notice', 'Your contact enquiry was successfully sent. Thank you!');
-
-                // Redirect - This is important to prevent users re-posting
-                // the form if they refresh the page
-                return $this->redirect($this->generateUrl('prevision'));
-            }
+        if ($process)
+        {
+            $this->get('session')->getFlashBag()->add('notice', 'Merci de nous avoir contacté, nous répondrons à vos questions dans les plus brefs délais.');
         }
 
         return $this->render('BaseCoreBundle:Core:bug.html.twig', array( 'form' => $form->createView()));

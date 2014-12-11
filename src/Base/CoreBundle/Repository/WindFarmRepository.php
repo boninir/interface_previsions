@@ -41,4 +41,29 @@ class WindFarmRepository extends EntityRepository
 
 		return $qb->getArrayResult();
 	}
+
+	public function getWindFarmsAndTurbines2(){
+		
+		// $qb = $this->_em->createQueryBuilder()
+		// 		   ->select("'wft.id'" AS "id")
+		// 		   ->from("'BaseCoreBundle:WindFarm'", "wft");
+				   // ->leftJoin('wft.turbines', 't')
+				   // ->addSelect('t')
+				   // ->orderBy('t.alias');
+
+		// return $qb;
+	}
+
+	// public function getListeBoutonBandeau($id_bandeau)
+	// {
+	// 	$qb = $this->createQueryBuilder('btn')
+	// 			   ->leftJoin('btn.BandeauBtnsBandeau', 'b')
+	// 			   ->where('b.bandeau = ' . $id_bandeau)
+	// 			   ->addSelect('b')
+	// 			   ->orderBy('b.ordre')
+	// 			   ->addSelect('b')
+	// 			   ->getQuery();
+
+	// 	return $qb->getResult();
+	// }
 }
