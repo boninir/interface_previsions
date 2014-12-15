@@ -21,13 +21,12 @@ class TurbineStatusCodeType extends AbstractType
                                                  'widget' => 'single_text',
                                                  'format' => 'yyyy-MM-dd',))
                 ->add('arrayId', 'textarea')
-                // ->add('turbines', new TurbineType())
                 ->add('turbines', 'entity', array('class' => 'BaseCoreBundle:WindFarm',
                                                              'property' => 'name',
                                                              'multiple' => true,
                                                              'expanded' => true,
                                                    'query_builder' => function(WindFarmRepository $repo){
-                                                    return $repo->getWindFarmsAndTurbines2();}
+                                                    return $repo->getWindFarmsAndTurbines();}
                                                     ))
                 ->add('save', 'submit');
     }

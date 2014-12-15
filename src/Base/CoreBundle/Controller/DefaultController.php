@@ -44,8 +44,8 @@ class DefaultController extends Controller
 
         // récupération des valeurs à ajouter à la vue
         // $statuscode = $statusCodeServices->getStatusCodes();
-
         $form = $this->get('form.factory')->create(new TurbineStatusCodeType());
+                                  echo 'testttt';exit;
 
         if ($form->handleRequest($request)->isValid()) {
             // récupération des données envoyées par le formulaire

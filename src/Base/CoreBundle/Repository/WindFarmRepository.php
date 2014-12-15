@@ -14,7 +14,7 @@ use Doctrine\ORM\Query\ResultSetMappingBuilder;
  */
 class WindFarmRepository extends EntityRepository
 {
-	public function getWindFarmsAndTurbines(){
+	public function getWindFarmsAndTurbines2(){
 
 		$rsm = new ResultSetMapping();
 		$rsm->addEntityResult('BaseCoreBundle:WindFarm', 'wf');
@@ -42,14 +42,14 @@ class WindFarmRepository extends EntityRepository
 		return $qb->getArrayResult();
 	}
 
-	public function getWindFarmsAndTurbines2(){
+	public function getWindFarmsAndTurbines(){
 		
-		$qb = $this->_em->createQueryBuilder()
-				   ->select('wft.id', ',')
-				   ->from('BaseCoreBundle:WindFarm', 'wft')
-				   ->leftJoin('wft.turbines', 't')
-				   ->addSelect('t.id')
-				   ->orderBy('t.alias');
+		$qb = $this->_em->createQueryBuilder('wft')
+				   ->select('wft')
+				   ->from("BaseCoreBundle:WindFarm", 'wft')
+				   ->leftJoin("wft.turbines", "t")
+				   ->addSelect('t')
+				   ->orderBy("t.alias");
 
 		return $qb;
 	}

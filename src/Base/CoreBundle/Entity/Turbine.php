@@ -7,22 +7,22 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Turbine
  *
- * @ORM\Table(name="""DATA_WAREHOUSE"".""Turbine""")
+ * @ORM\Table(name="`DATA_WAREHOUSE.Turbine`")
  * @ORM\Entity(repositoryClass="Base\CoreBundle\Repository\TurbineRepository")
  */
 class Turbine
 {
     /**
      * @ORM\ManyToOne(targetEntity="Base\CoreBundle\Entity\TurbineModel")
-     * @ORM\JoinColumn(name="`turbineModelId`", referencedColumnName="`id`", nullable=false)
-     * @ORM\JoinTable(name="""DATA_WAREHOUSE"".""TurbineModel""")
+     * @ORM\JoinColumn(name="""turbineModelId""", referencedColumnName="`id`", nullable=false)
+     * @ORM\JoinTable(name="`DATA_WAREHOUSE.TurbineModel`")
      */
     private $turbineModel;
 
     /**
      * @ORM\ManyToOne(targetEntity="Base\CoreBundle\Entity\WindFarm", inversedBy="turbines")
-     * @ORM\JoinColumn(name="`windFarmId`", referencedColumnName="`id`", nullable=false)
-     * @ORM\JoinTable(name="""DATA_WAREHOUSE"".""WindFarm""")
+     * @ORM\JoinColumn(name="""windFarmId""", referencedColumnName="`id`", nullable=false)
+     * @ORM\JoinTable(name="`DATA_WAREHOUSE.WindFarm`")
      */
     private $windFarm;
 

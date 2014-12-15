@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * WindFarm
  *
- * @ORM\Table(name="""DATA_WAREHOUSE"".""WindFarm""")
+ * @ORM\Table(name="`DATA_WAREHOUSE.WindFarm`")
  * @ORM\Entity(repositoryClass="Base\CoreBundle\Repository\WindFarmRepository")
  */
 class WindFarm
