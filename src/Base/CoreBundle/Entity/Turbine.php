@@ -14,14 +14,14 @@ class Turbine
 {
     /**
      * @ORM\ManyToOne(targetEntity="Base\CoreBundle\Entity\TurbineModel")
-     * @ORM\JoinColumn(name="""turbineModelId""", referencedColumnName="""id""", nullable=false)
+     * @ORM\JoinColumn(name="`turbineModelId`", referencedColumnName="`id`", nullable=false)
      * @ORM\JoinTable(name="""DATA_WAREHOUSE"".""TurbineModel""")
      */
     private $turbineModel;
 
     /**
      * @ORM\ManyToOne(targetEntity="Base\CoreBundle\Entity\WindFarm", inversedBy="turbines")
-     * @ORM\JoinColumn(name="""windFarmId""", referencedColumnName="""id""", nullable=false)
+     * @ORM\JoinColumn(name="`windFarmId`", referencedColumnName="`id`", nullable=false)
      * @ORM\JoinTable(name="""DATA_WAREHOUSE"".""WindFarm""")
      */
     private $windFarm;
@@ -29,7 +29,7 @@ class Turbine
     /**
      * @var string
      *
-     * @ORM\Column(name="""id""", type="string", length=16)
+     * @ORM\Column(name="`id`", type="string", length=16)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\SequenceGenerator(sequenceName="""DATA_WAREHOUSE"".""Turbine_id_seq""", allocationSize=1, initialValue=1)
@@ -39,35 +39,35 @@ class Turbine
     /**
      * @var string
      *
-     * @ORM\Column(name="""alias""", type="string", length=32, nullable=true)
+     * @ORM\Column(name="`alias`", type="string", length=32, nullable=true)
      */
     private $alias;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="""name""", type="text", nullable=true)
+     * @ORM\Column(name="`name`", type="text", nullable=true)
      */
     private $name;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="""numInWindFarm""", type="smallint", nullable=true)
+     * @ORM\Column(name="`numInWindFarm`", type="smallint", nullable=true)
      */
     private $numInWindFarm;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="""firstRunningDate""", type="date", nullable=true)
+     * @ORM\Column(name="`firstRunningDate`", type="date", nullable=true)
      */
     private $firstRunningDate;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="""hubHeight""", type="float", nullable=true)
+     * @ORM\Column(name="`hubHeight`", type="float", nullable=true)
      */
     private $hubHeight;
 

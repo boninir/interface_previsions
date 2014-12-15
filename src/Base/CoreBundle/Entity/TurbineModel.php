@@ -15,7 +15,7 @@ class TurbineModel
     /**
      * @var integer
      *
-     * @ORM\Column(name="""id""", type="string", length=16)
+     * @ORM\Column(name="id", type="string", length=16)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\SequenceGenerator(sequenceName="""DATA_WAREHOUSE"".""TurbineModel_id_seq""", allocationSize=1, initialValue=1)
@@ -25,42 +25,42 @@ class TurbineModel
     /**
      * @var string
      *
-     * @ORM\Column(name="""supplier""", type="string", length=32, nullable=true)
+     * @ORM\Column(name="supplier", type="string", length=32, nullable=true)
      */
     private $supplier;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="""model""", type="string", length=32, nullable=true)
+     * @ORM\Column(name="model", type="string", length=32, nullable=true)
      */
     private $model;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="""hubHeight""", type="smallint", nullable=true)
+     * @ORM\Column(name="hubHeight", type="smallint", nullable=true)
      */
     private $hubHeight;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="""maxPower""", type="integer", nullable=true)
+     * @ORM\Column(name="maxPower", type="integer", nullable=true)
      */
     private $maxPower;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="""rotorDiameter""", type="smallint", nullable=true)
+     * @ORM\Column(name="rotorDiameter", type="smallint", nullable=true)
      */
     private $rotorDiameter;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="""gearbox""", type="string", length=32, nullable=true)
+     * @ORM\Column(name="gearbox", type="string", length=32, nullable=true)
      */
     private $gearbox;
 
@@ -74,7 +74,7 @@ class TurbineModel
     /**
      * @var string
      *
-     * @ORM\Column(name="""converter""", type="string", length=32, nullable=true)
+     * @ORM\Column(name="converter", type="string", length=32, nullable=true)
      */
     private $converter;
 
