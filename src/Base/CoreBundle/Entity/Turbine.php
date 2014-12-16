@@ -14,14 +14,14 @@ class Turbine
 {
     /**
      * @ORM\ManyToOne(targetEntity="Base\CoreBundle\Entity\TurbineModel")
-     * @ORM\JoinColumn(name="""turbineModelId""", referencedColumnName="`id`", nullable=false)
+     * @ORM\JoinColumn(name="""turbineModelId""", nullable=false)
      * @ORM\JoinTable(name="`DATA_WAREHOUSE.TurbineModel`")
      */
     private $turbineModel;
 
     /**
      * @ORM\ManyToOne(targetEntity="Base\CoreBundle\Entity\WindFarm", inversedBy="turbines")
-     * @ORM\JoinColumn(name="""windFarmId""", referencedColumnName="`id`", nullable=false)
+     * @ORM\JoinColumn(name="""windFarmId""", nullable=false)
      * @ORM\JoinTable(name="`DATA_WAREHOUSE.WindFarm`")
      */
     private $windFarm;

@@ -16,6 +16,19 @@
 								</label>
 								{{ form_widget(windfarm, {'attr': {'class': ' datepicker'}}) }}
 								{{ form_label(windfarm) }}
+								<ul>
+									{% for turbines in windfarm %}
+										<li>
+											<input type="checkbox" id="node-{{loop.index0}}" />
+											<label>
+												<input type="checkbox" />
+												<span></span>
+											</label>
+											{{ form_widget(turbines, {'attr': {'class': ' datepicker'}}) }}
+											{{ form_label(turbines) }}
+										</li>
+									{% endfor %}
+								</ul>
 							</li>
 						{% endfor %}
 		            </ul>

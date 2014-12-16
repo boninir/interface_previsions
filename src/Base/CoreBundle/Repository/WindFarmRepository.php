@@ -14,6 +14,7 @@ use Doctrine\ORM\Query\ResultSetMappingBuilder;
  */
 class WindFarmRepository extends EntityRepository
 {
+	// this function is a test to make native query compatible with doctrine2 and postgres
 	public function getWindFarmsAndTurbines2(){
 
 		$rsm = new ResultSetMapping();
@@ -49,7 +50,7 @@ class WindFarmRepository extends EntityRepository
 				   ->from("BaseCoreBundle:WindFarm", 'wft')
 				   ->leftJoin("wft.turbines", "t")
 				   ->addSelect('t')
-				   ->orderBy("t.alias");
+				   ->orderBy("wft.name, t.name");
 
 		return $qb;
 	}
