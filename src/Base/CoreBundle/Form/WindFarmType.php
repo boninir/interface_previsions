@@ -4,10 +4,11 @@ namespace Base\CoreBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Base\CoreBundle\Repository\WindFarmRepository;
 use Base\CoreBundle\Repository\TurbineRepository;
 
-class TurbineStatusCodeType extends AbstractType
+class WindFarmType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,28 +16,32 @@ class TurbineStatusCodeType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('exportBegin', 'date', array('input'  => 'datetime',
-                                                   'widget' => 'single_text',
-                                                   'format' => 'yyyy-MM-dd',))
-                ->add('exportEnd', 'date', array('input'  => 'datetime',
-                                                 'widget' => 'single_text',
-                                                 'format' => 'yyyy-MM-dd',))
-                ->add('arrayId', 'textarea')
-                ->add('windfarms', 'entity', array('class' => 'BaseCoreBundle:WindFarm',
-                                                              'property' => 'nameAndId',
-                                                              'multiple' => true,
-                                                              'expanded' => true,
+        $builder
+            ->add('windfarms', 'entity', array('class' => 'BaseCoreBundle:WindFarm',
+                                                             'property' => 'nameAndId',
+                                                             'multiple' => true,
+                                                             'expanded' => true,
                                                    'query_builder' => function(WindFarmRepository $repo){
                                                     return $repo->getAllWindFarms();}
                                                     ))
-                ->add('turbines', 'entity', array('class' => 'BaseCoreBundle:Turbine',
+            ->add('turbines', 'entity', array('class' => 'BaseCoreBundle:Turbine',
                                                              'property' => 'aliasAndId',
                                                              'multiple' => true,
                                                              'expanded' => true,
                                                    'query_builder' => function(TurbineRepository $repo){
                                                     return $repo->getAllTurbines();}
-                                                    ))
-                ->add('save', 'submit');
+                                                    ));
+    }
+    
+    /**
+     * @param OptionsResolverInterface $resolver
+     */
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
+        $resolver->setDefaults(array(
+            // 'data_class' => 'Base\CoreBundle\Entity\WindFarm'
+            'data_class' => NULL
+        ));
     }
 
     /**
@@ -44,6 +49,6 @@ class TurbineStatusCodeType extends AbstractType
      */
     public function getName()
     {
-        return 'turbineStatusCodeType';
+        return 'windfarm';
     }
 }

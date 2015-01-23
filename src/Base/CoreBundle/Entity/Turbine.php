@@ -255,4 +255,21 @@ class Turbine
 
         return $this;
     }
+
+    /**
+     * Get aliasAndId
+     *
+     * Fonction permettant de concaténer l'alias de la turbine à l'id du parc,
+     * indispensable pour trier les menus latéraux de gauche
+     *
+     * @return String 
+     */ 
+    public function getAliasAndId()
+    {
+        $alias = $this->alias;
+        $id = $this->windFarm->getId();
+        $retour = $alias .'_'. $id;
+
+        return $retour;
+    }
 }

@@ -188,7 +188,7 @@ class WindFarm
     {
         $this->turbines[] = $turbines;
         // ajouter la synchronisation avec l'objet windfarm si l'application doit permet l'ajout de parc
-        $turbine->setWindFarm($this);
+        // $turbine->setWindFarm($this);
         return $this;
     }
 
@@ -210,5 +210,27 @@ class WindFarm
     public function getTurbines()
     {
         return $this->turbines;
+    }
+
+    public function setTurbines($turbines)
+    {
+       $this->turbines = $turbines;
+    }
+
+    /**
+     * Get nameAndId
+     *
+     * Fonction permettant de concaténer le name et l'id du parc,
+     * indispensable pour trier les menus latéraux de gauche
+     *
+     * @return String 
+     */ 
+    public function getNameAndId()
+    {
+        $name = $this->name;
+        $id = $this->id;
+        $retour = $name .'_'. $id;
+
+        return $retour;
     }
 }

@@ -14,57 +14,25 @@ use Doctrine\ORM\Query\ResultSetMappingBuilder;
  */
 class WindFarmRepository extends EntityRepository
 {
-	// this function is a test to make native query compatible with doctrine2 and postgres
-	public function getWindFarmsAndTurbines2(){
-
-		$rsm = new ResultSetMapping();
-		$rsm->addEntityResult('BaseCoreBundle:WindFarm', 'wf');
-		$rsm->addFieldResult('wf', 'wf_id', 'id');
-		$rsm->addFieldResult('wf', 'wf_name', 'name');
-		$rsm->addFieldResult('wf', 'wf_alias', 'alias');
-		$rsm->addJoinedEntityResult('BaseCoreBundle:Turbine' , 't', 'wf', 'turbines');
-		$rsm->addFieldResult('t', 't_id', 'id');
-		$rsm->addFieldResult('t', 't_name', 'name');
-		$rsm->addFieldResult('t', 't_alias', 'alias');
-
-		$sql = 'SELECT "wf"."id" as wf_id,
-					   "wf"."name" as wf_name,
-					   "wf"."alias" as wf_alias,
-					   "t"."id" as t_id,
-					   "t"."name" as t_name,
-					   "t"."alias" as t_alias
-  				FROM "DATA_WAREHOUSE"."WindFarm" wf
-  				INNER JOIN "DATA_WAREHOUSE"."Turbine" t
-  				ON "wf"."id" = "t"."windFarmId"
-  				ORDER BY "t"."name"';
-
-  		$qb = $this->_em->createNativeQuery($sql, $rsm);
-
-		return $qb->getArrayResult();
-	}
 
 	public function getWindFarmsAndTurbines(){
 		
 		$qb = $this->_em->createQueryBuilder('wft')
-				   ->select('wft')
+				   ->select('wft, t')
 				   ->from("BaseCoreBundle:WindFarm", 'wft')
 				   ->leftJoin("wft.turbines", "t")
-				   ->addSelect('t')
 				   ->orderBy("wft.name, t.name");
 
 		return $qb;
 	}
 
-	// public function getListeBoutonBandeau($id_bandeau)
-	// {
-	// 	$qb = $this->createQueryBuilder('btn')
-	// 			   ->leftJoin('btn.BandeauBtnsBandeau', 'b')
-	// 			   ->where('b.bandeau = ' . $id_bandeau)
-	// 			   ->addSelect('b')
-	// 			   ->orderBy('b.ordre')
-	// 			   ->addSelect('b')
-	// 			   ->getQuery();
+	public function getAllWindFarms(){
+		
+		$qb = $this->_em->createQueryBuilder('wf')
+				   ->select('wf')
+				   ->from("BaseCoreBundle:WindFarm", 'wf')
+				   ->orderBy("wf.name");
 
-	// 	return $qb->getResult();
-	// }
+		return $qb;
+	}
 }

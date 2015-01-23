@@ -15,9 +15,7 @@ class TurbineType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('id')
-            ->add('name')
-            ->add('alias');
+            ->add('name', 'textarea');
     }
     
     /**
@@ -35,6 +33,6 @@ class TurbineType extends AbstractType
      */
     public function getName()
     {
-        return 'base_corebundle_turbine';
+        return 'turbine';
     }
 }

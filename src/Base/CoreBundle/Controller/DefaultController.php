@@ -4,7 +4,9 @@ namespace Base\CoreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Base\CoreBundle\Form\ContactType;
+use Base\CoreBundle\Form\WindFarmType;
 use Base\CoreBundle\Form\Handler\ContactHandler;
+use Base\CoreBundle\Form\Handler\TurbinesStatusCodeHandler;
 use Base\CoreBundle\Form\TurbineStatusCodeType;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -12,7 +14,11 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('BaseCoreBundle:Core:content.html.twig');
+        // récupération des valeurs à ajouter à la vue
+        $form = $this->get('form.factory')->create(new WindFarmType());
+
+
+        return $this->render('BaseCoreBundle:Core:content.html.twig', array('form' => $form->createView()));
     }
 
     public function meteoAction()
@@ -30,41 +36,37 @@ class DefaultController extends Controller
         $menuServices = $this->container->get('base_core.menuService');
         $repository = $this->getDoctrine()->getManager();
 
-        //////////////
-        //affichage //
-        //////////////
+        /////////////////////////////
+        //récupération des données //
+        /////////////////////////////
 
         // récupération de la liste des parcs et de leurs turbines
         $parcs = $repository->getRepository('BaseCoreBundle:WindFarm')
                             ->getWindFarmsAndTurbines();
 
-        // récupération de la liste de stat(filename)tus code triée
+        // récupération de la liste de status code triée
         $statusCodes = $repository->getRepository('BaseCoreBundle:StatusCode')
                                   ->findBy(array(),array('id' => 'asc'));
 
         // récupération des valeurs à ajouter à la vue
-        // $statuscode = $statusCodeServices->getStatusCodes();
         $form = $this->get('form.factory')->create(new TurbineStatusCodeType());
-        $windfarm = $form["windfarms"]->getData();
-        // echo $form["windfarms"][0]["id"];exit();
 
-        if ($form->handleRequest($request)->isValid()) {
-            // récupération des données envoyées par le formulaire
-            $data = $form->getData();
-            var_dump($data);exit;
+        // récupération des valeurs renvoyées par la vue
+        $request = $this->getRequest();
+        $formHandler = new TurbinesStatusCodeHandler($form, $request);
 
-            $dateBegin = $data["exportBegin"];
-            $dateEnd = $data["exportEnd"];
-            $arrayId = $data["arrayId"];
-            
-            $tabResultStatusCode = $statusCodeServices->getStatusCodesRequest($dateBegin, $dateEnd, $arrayId);
-            echo $tabResultStatusCode;exit;
+        // traitement du formulaire
+        $process = $formHandler->process();
+
+        if ($process)
+        {
+            $this->get('session')->getFlashBag()->add('notice', 'Merci de nous avoir contacté, nous répondrons à vos questions dans les plus brefs délais.');
         }
 
         return $this->render('BaseCoreBundle:Core:statuscode.html.twig', array( 'statusCodes' => $statusCodes,
                                                                                 'form' => $form->createView(),
-                                                                                'parcs' => $parcs,
-                                                                                'windfarm' => $windfarm));
+                                                                                'parcs' => $parcs)
+        );
     }
 
     public function erreurAction()

@@ -18,4 +18,14 @@ class TurbineRepository extends EntityRepository
 
 		return $tabTurbine;
 	}
+
+	public function getAllTurbines(){
+		
+		$qb = $this->_em->createQueryBuilder('t')
+				   ->select('t')
+				   ->from("BaseCoreBundle:Turbine", 't')
+				   ->orderBy("t.windFarm, t.numInWindFarm");
+
+		return $qb;
+	}
 }
