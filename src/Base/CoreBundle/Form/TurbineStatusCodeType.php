@@ -21,7 +21,7 @@ class TurbineStatusCodeType extends AbstractType
                                                  'widget' => 'single_text',
                                                  'format' => 'yyyy-MM-dd',))
                 ->add('arrayId', 'textarea')
-                ->add('turbines', 'entity', array('class' => 'BaseCoreBundle:WindFarm',
+                ->add('windfarms', 'entity', array('class' => 'BaseCoreBundle:WindFarm',
                                                              'property' => 'name',
                                                              'multiple' => true,
                                                              'expanded' => true,

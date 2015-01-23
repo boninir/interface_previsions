@@ -38,14 +38,15 @@ class DefaultController extends Controller
         $parcs = $repository->getRepository('BaseCoreBundle:WindFarm')
                             ->getWindFarmsAndTurbines();
 
-        // récupération de la liste de status code triée
+        // récupération de la liste de stat(filename)tus code triée
         $statusCodes = $repository->getRepository('BaseCoreBundle:StatusCode')
                                   ->findBy(array(),array('id' => 'asc'));
 
         // récupération des valeurs à ajouter à la vue
         // $statuscode = $statusCodeServices->getStatusCodes();
         $form = $this->get('form.factory')->create(new TurbineStatusCodeType());
-                                  // echo 'testttt';exit;
+        $windfarm = $form["windfarms"]->getData();
+        // echo $form["windfarms"][0]["id"];exit();
 
         if ($form->handleRequest($request)->isValid()) {
             // récupération des données envoyées par le formulaire
@@ -62,7 +63,8 @@ class DefaultController extends Controller
 
         return $this->render('BaseCoreBundle:Core:statuscode.html.twig', array( 'statusCodes' => $statusCodes,
                                                                                 'form' => $form->createView(),
-                                                                                'parcs' => $parcs));
+                                                                                'parcs' => $parcs,
+                                                                                'windfarm' => $windfarm));
     }
 
     public function erreurAction()

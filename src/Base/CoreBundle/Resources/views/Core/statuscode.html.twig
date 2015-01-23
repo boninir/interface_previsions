@@ -7,7 +7,7 @@
 			<nav class="navbar navbar-default" role="navigation">
 				<div class="acidjs-css3-treeview">
 			    	<ul>
-			    		{% for windfarm in form.turbines %}
+			    		{% for windfarm in form.windfarms %}
 							<li>
 								<input type="checkbox" id="node-{{loop.index0}}" />
 								<label>
@@ -16,21 +16,9 @@
 								</label>
 								{{ form_widget(windfarm, {'attr': {'class': ' datepicker'}}) }}
 								{{ form_label(windfarm) }}
-								<ul>
-									{% for turbines in windfarm %}
-										<li>
-											<input type="checkbox" id="node-{{loop.index0}}" />
-											<label>
-												<input type="checkbox" />
-												<span></span>
-											</label>
-											{{ form_widget(turbines, {'attr': {'class': ' datepicker'}}) }}
-											{{ form_label(turbines) }}
-										</li>
-									{% endfor %}
-								</ul>
 							</li>
 						{% endfor %}
+						{# dump(form.turbine[1].vars.id) #}
 		            </ul>
 				</div>
 			</nav>
@@ -70,18 +58,21 @@
 								{# form_widget(form.turbines) #}
 			    	{# form_widget(form.turbines, {'attr': {'class': ''}}) #}
 			    	{{ form_row(form._token) }}
+			    	{# form_rest(form) #}
 			    </div>
 			</div>
 		</div>
 
 		<div class="col-xs-12 col-sm-12 col-md-3">
-			<ul class="list-unstyled">
-				{% for statusCode in statusCodes %}
-					<li>
-						{{ statusCode.id[2:] ~ ' - ' ~ statusCode.name}}
-					</li>	
-				{% endfor %}
-			</ul>
+				<div class="">
+					<ul class="list-unstyled">
+						{% for statusCode in statusCodes %}
+							<li>
+								<label class="nav-left-stat-code">{{ statusCode.id[2:] ~ ' - ' ~ statusCode.name}}</label>
+							</li>	
+						{% endfor %}
+					</ul>
+				</div>
 		</div>
 	</form>
 {% endblock %}
