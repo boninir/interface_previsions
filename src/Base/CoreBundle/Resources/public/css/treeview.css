@@ -29,6 +29,8 @@
 .acidjs-css3-treeview *
 {
     vertical-align: middle;
+    max-height: 400px;
+    overflow-y:auto;
 }
  
 .acidjs-css3-treeview
@@ -51,12 +53,6 @@
 .acidjs-css3-treeview label
 {
     cursor: pointer;
-}
-
-.acidjs-css3-treeview-content
-{
-    cursor: none;
-    margin-left:4%;
 }
  
 .acidjs-css3-treeview label[for]::before
