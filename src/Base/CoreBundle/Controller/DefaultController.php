@@ -45,8 +45,7 @@ class DefaultController extends Controller
                             ->getWindFarmsAndTurbines();
 
         // récupération de la liste de status code triée
-        $statusCodes = $repository->getRepository('BaseCoreBundle:StatusCode')
-                                  ->findBy(array(),array('id' => 'asc'));
+        $statusCodes = $statusCodeServices->getStatusCodesSorted();
 
         // récupération des valeurs à ajouter à la vue
         $form = $this->get('form.factory')->create(new TurbineStatusCodeType());

@@ -74,9 +74,11 @@
 		<div class="col-xs-12 col-sm-12 col-md-3">
 			<div class="navbar navbar-default">
 				<ul class="acidjs-css3-treeview">
-					{% for statusCode in statusCodes %}
+					{% for statusCode in statusCodes|sort %}
 						<li>
-							<label>{{ statusCode.id[2:] ~ ' - ' ~ statusCode.name}}</label>
+							<label style="margin-left:4%;">
+								{{ statusCode.id ~ ' - ' ~ statusCode.name}}
+							</label>
 						</li>	
 					{% endfor %}
 				</ul>

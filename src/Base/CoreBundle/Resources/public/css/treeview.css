@@ -52,6 +52,12 @@
 {
     cursor: pointer;
 }
+
+.acidjs-css3-treeview-content
+{
+    cursor: none;
+    margin-left:4%;
+}
  
 .acidjs-css3-treeview label[for]::before
 {

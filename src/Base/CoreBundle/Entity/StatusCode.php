@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * StatusCode
  *
- * @ORM\Table(name="""DATA_WAREHOUSE"".""StatusCode""")
+ * @ORM\Table(name="`DATA_WAREHOUSE.StatusCode`")
  * @ORM\Entity(repositoryClass="Base\CoreBundle\Repository\StatusCodeRepository")
  */
 class StatusCode

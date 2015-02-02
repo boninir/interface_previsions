@@ -12,4 +12,14 @@ use Doctrine\ORM\EntityRepository;
  */
 class StatusCodeRepository extends EntityRepository
 {
+
+	public function getStatusCodes(){
+
+		$qb = $this->createQueryBuilder('sc')
+		       ->orderBy('sc.id', 'asc')
+		       ->getQuery();
+
+		return $qb->getArrayResult();
+	}
+
 }
