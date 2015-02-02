@@ -8484,6 +8484,7 @@ html, body {
 .form-contact{width: 40%;}
 .menu_lateral{width:20%;}
 .nav-left-stat-code-content{margin-left:4%;}
+
 .acidjs-css3-treeview,
 .acidjs-css3-treeview *
 {
@@ -8514,12 +8515,14 @@ html, body {
  
 .acidjs-css3-treeview *
 {
-    vertical-align: middle;
+    vertical-align: middle; 
 }
  
 .acidjs-css3-treeview
 {
     font: normal 11px/16px "Segoe UI", Arial, Sans-serif;
+    max-height: 400px;
+    overflow-y:auto;
 }
  
 .acidjs-css3-treeview li

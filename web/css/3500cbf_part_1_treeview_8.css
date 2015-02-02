@@ -28,12 +28,14 @@
  
 .acidjs-css3-treeview *
 {
-    vertical-align: middle;
+    vertical-align: middle; 
 }
  
 .acidjs-css3-treeview
 {
     font: normal 11px/16px "Segoe UI", Arial, Sans-serif;
+    max-height: 400px;
+    overflow-y:auto;
 }
  
 .acidjs-css3-treeview li
