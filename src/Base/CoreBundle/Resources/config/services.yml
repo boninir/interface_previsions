@@ -3,6 +3,10 @@ services:
         class: Base\CoreBundle\Services\StatusCodeService
         arguments: [@doctrine.orm.entity_manager]
 
+    base_core.turbineStatusCodeService:
+        class: Base\CoreBundle\Services\TurbineStatusCodeService
+        arguments: [@doctrine.orm.entity_manager]
+
     base_core.menuService:
         class: Base\CoreBundle\Services\MenuService
         arguments: [@doctrine.orm.entity_manager]

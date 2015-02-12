@@ -33,6 +33,7 @@ class DefaultController extends Controller
         ///////////////////////////////////////////////
 
         $statusCodeServices = $this->container->get('base_core.statusCodeService');
+        $turbinestatusCodeServices = $this->container->get('base_core.turbineStatusCodeService');
         $menuServices = $this->container->get('base_core.menuService');
         $repository = $this->getDoctrine()->getManager();
 
@@ -55,11 +56,17 @@ class DefaultController extends Controller
         $formHandler = new TurbinesStatusCodeHandler($form, $request);
 
         // traitement du formulaire
-        $process = $formHandler->process();
+        $paramRequest = $formHandler->process();
 
-        if ($process)
+        if (!empty($paramRequest))
         {
-            $this->get('session')->getFlashBag()->add('notice', 'Merci de nous avoir contacté, nous répondrons à vos questions dans les plus brefs délais.');
+            $tabResultRequest = $turbinestatusCodeServices->executeStatusCodesRequest($paramRequest);
+
+            var_dump($tabResultRequest[0]);exit();
+            return $this->render('BaseCoreBundle:Core:statuscode.html.twig', array( 'statusCodes' => $statusCodes,
+                                                                                    'form' => $form->createView(),
+                                                                                    'tabResultRequest' => $tabResultRequest,
+                                                                                    'parcs' => $parcs));          
         }
 
         return $this->render('BaseCoreBundle:Core:statuscode.html.twig', array( 'statusCodes' => $statusCodes,

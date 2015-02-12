@@ -1,40 +1,17 @@
-info it worked if it ends with ok
-verbose cli [ 'node', '/usr/bin/npm', 'install', 'less' ]
-info using npm@1.1.4
-info using node@v0.6.12
-verbose config file /home/raphaelbonini/.npmrc
-verbose config file /usr/etc/npmrc
-verbose config file /usr/share/npm/npmrc
-verbose cache add [ 'less', null ]
-silly cache add: name, spec, args [ undefined, 'less', [ 'less', null ] ]
-verbose parsed url { pathname: 'less', path: 'less', href: 'less' }
-verbose addNamed [ 'less', '' ]
-verbose addNamed [ null, '' ]
-silly name, range, hasData [ 'less', '', false ]
-verbose raw, before any munging less
-verbose url resolving [ 'https://registry.npmjs.org/', './less' ]
-verbose url resolved https://registry.npmjs.org/less
-http GET https://registry.npmjs.org/less
-ERR! Error: failed to fetch from registry: less
-ERR!     at /usr/share/npm/lib/utils/npm-registry-client/get.js:139:12
-ERR!     at cb (/usr/share/npm/lib/utils/npm-registry-client/request.js:31:9)
-ERR!     at Request._callback (/usr/share/npm/lib/utils/npm-registry-client/request.js:136:18)
-ERR!     at Request.callback (/usr/lib/nodejs/request/main.js:119:22)
-ERR!     at Request.<anonymous> (/usr/lib/nodejs/request/main.js:212:58)
-ERR!     at Request.emit (events.js:88:20)
-ERR!     at ClientRequest.<anonymous> (/usr/lib/nodejs/request/main.js:412:12)
-ERR!     at ClientRequest.emit (events.js:67:17)
-ERR!     at HTTPParser.onIncoming (http.js:1261:11)
-ERR!     at HTTPParser.onHeadersComplete (http.js:102:31)
-ERR! You may report this log at:
-ERR!     <http://bugs.debian.org/npm>
-ERR! or use
-ERR!     reportbug --attach /var/www/interface_previsions/npm-debug.log npm
-ERR! 
-ERR! System Linux 3.2.0-63-generic
-ERR! command "node" "/usr/bin/npm" "install" "less"
-ERR! cwd /var/www/interface_previsions
-ERR! node -v v0.6.12
-ERR! npm -v 1.1.4
-ERR! message failed to fetch from registry: less
-verbose exit [ 1, true ]
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 error install Couldn't read dependencies
+5 error package.json ENOENT, open '/var/www/interface_previsions/package.json'
+5 error package.json This is most likely not a problem with npm itself.
+5 error package.json npm can't find a package.json file in your current directory.
+6 error System Linux 3.2.0-63-generic
+7 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install"
+8 error cwd /var/www/interface_previsions
+9 error node -v v0.10.33
+10 error npm -v 1.4.28
+11 error path /var/www/interface_previsions/package.json
+12 error code ENOPACKAGEJSON
+13 error errno 34
+14 verbose exit [ 34, true ]

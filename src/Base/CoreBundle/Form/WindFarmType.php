@@ -31,6 +31,7 @@ class WindFarmType extends AbstractType
                                                    'query_builder' => function(TurbineRepository $repo){
                                                     return $repo->getAllTurbines();}
                                                     ));
+            ;
     }
     
     /**
@@ -39,8 +40,8 @@ class WindFarmType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            // 'data_class' => 'Base\CoreBundle\Entity\WindFarm'
-            'data_class' => NULL
+            'data_class' => 'Base\CoreBundle\Entity\WindFarm'
+            // 'data_class' => NULL
         ));
     }
 

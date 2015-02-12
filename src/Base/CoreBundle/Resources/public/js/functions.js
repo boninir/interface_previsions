@@ -2,8 +2,8 @@ $(document).ready(function(){
 
     // permet d'afficher les datepicker de l'interface
                 $(".datepicker").datepicker({dateFormat: 'dd/mm/yy',
-                                                        firstDay:1
-                                                    }).attr("readonly","readonly");
+                                            firstDay:1
+                                            }).attr("readonly","readonly");
 
 
                 // permet de gérer les checkbox en cascade du menu latéral gauche (lorsqu'on

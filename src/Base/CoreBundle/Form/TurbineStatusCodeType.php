@@ -17,10 +17,10 @@ class TurbineStatusCodeType extends AbstractType
     {
         $builder->add('exportBegin', 'date', array('input'  => 'datetime',
                                                    'widget' => 'single_text',
-                                                   'format' => 'yyyy-MM-dd',))
+                                                   'format' => 'dd-MM-yyyy',))
                 ->add('exportEnd', 'date', array('input'  => 'datetime',
                                                  'widget' => 'single_text',
-                                                 'format' => 'yyyy-MM-dd',))
+                                                 'format' => 'dd-MM-yyyy',))
                 ->add('arrayId', 'textarea')
                 ->add('windfarms', 'entity', array('class' => 'BaseCoreBundle:WindFarm',
                                                               'property' => 'nameAndId',

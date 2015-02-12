@@ -34,10 +34,11 @@ class TurbinesStatusCodeHandler
 	    {
 	        $this->form->bind($this->request);
 
-	        $data = $this->form->getData();
-	        $this->onSuccess($data);
+            $data = $this->form->getData();
 
-	        return true;
+            $retour = $this->onSuccess($data);
+
+	        return $retour;
 	    }
 
 	    return false;
@@ -45,13 +46,14 @@ class TurbinesStatusCodeHandler
 
     protected function onSuccess($data)
     {
-        var_dump($data);exit;
 
         $dateBegin = $data["exportBegin"];
         $dateEnd = $data["exportEnd"];
         $arrayId = $data["arrayId"];
+        // $turbines = $data["id"]->toArray();
+
+        $paramRequest = array($dateBegin, $dateEnd, $arrayId);
         
-        $tabResultStatusCode = $statusCodeServices->getStatusCodesRequest($dateBegin, $dateEnd, $arrayId);
-        echo $tabResultStatusCode;exit;
+        return $paramRequest;
     }
 }

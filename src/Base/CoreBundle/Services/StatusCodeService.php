@@ -40,7 +40,7 @@ class StatusCodeService
 
     public function getStatusCodesRequest($dateBegin, $dateEnd, $arrayId){
 
-
+        echo 'je suis bien passé';exit();
         return $arrayId;
     }
 }

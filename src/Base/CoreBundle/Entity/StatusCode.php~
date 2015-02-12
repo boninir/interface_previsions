@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * StatusCode
  *
- * @ORM\Table(name="""DATA_WAREHOUSE"".""StatusCode""")
+ * @ORM\Table(name="`DATA_WAREHOUSE.StatusCode`")
  * @ORM\Entity(repositoryClass="Base\CoreBundle\Repository\StatusCodeRepository")
  */
 class StatusCode
@@ -15,7 +15,7 @@ class StatusCode
     /**
      * @var integer
      *
-     * @ORM\Column(name="""id""", type="string", length=16)
+     * @ORM\Column(name="`id`", type="string", length=16)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\SequenceGenerator(sequenceName="""DATA_WAREHOUSE"".""StatusCode_id_seq""", allocationSize=1, initialValue=1)
@@ -25,63 +25,63 @@ class StatusCode
     /**
      * @var string
      *
-     * @ORM\Column(name="""name""", type="string", length=64, nullable=true)
+     * @ORM\Column(name="`name`", type="string", length=64, nullable=true)
      */
     private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="""description""", type="text", nullable=true)
+     * @ORM\Column(name="`description`", type="text", nullable=true)
      */
     private $description;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="""level""", type="smallint", nullable=true)
+     * @ORM\Column(name="`level`", type="smallint", nullable=true)
      */
     private $level;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="""setDelay""", type="bigint", nullable=true)
+     * @ORM\Column(name="`setDelay`", type="bigint", nullable=true)
      */
     private $setDelay;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="""resetDelay""", type="bigint", nullable=true)
+     * @ORM\Column(name="`resetDelay`", type="bigint", nullable=true)
      */
     private $resetDelay;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="""group""", type="string", length=32, nullable=true)
+     * @ORM\Column(name="`group`", type="string", length=32, nullable=true)
      */
     private $groupe;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="""brakeProgram""", type="string", length=16, nullable=true)
+     * @ORM\Column(name="`brakeProgram`", type="string", length=16, nullable=true)
      */
     private $brakeProgram;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="""yawProgram""", type="string", length=16, nullable=true)
+     * @ORM\Column(name="`yawProgram`", type="string", length=16, nullable=true)
      */
     private $yawProgram;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="""type""", type="string", length=32, nullable=true)
+     * @ORM\Column(name="`type`", type="string", length=32, nullable=true)
      */
     private $type;
 
